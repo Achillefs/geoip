@@ -17,7 +17,7 @@ Plus, the ruby bindings available from MaxMind are quite crap to use.
 * While you are installing the MaxMind binaries on Linux systems, you mayget an error similar to this: 
     libGeoIP.so.1: cannot open shared object file: No such file or directory
   If you do, do the following:
-    $ vim /etc/ld.so.conf (and add the directory the libraries were installed in usually /var/lib or /var/shared/lib)
+    $ vim /etc/ld.so.conf (and add /var/shared/lib)
     $ ldconfig
   And rerun the installer
 
@@ -61,12 +61,13 @@ You can override the attribute used to geolocate by overriding +geo_attr+
 == REQUIREMENTS:
 
 * GeoIP C bindings (installed along with the Gem)
-* Active Support (sudo gem install active-support --no-ri --no-rdoc)
+* Active Support
   This isn't really needed, I just like using the 1.day.ago stuff too much...
 
 == INSTALL:
 
   sudo gem install autometal-geoip
+  sudo install_geoip (unless already installed)
 
 == LICENSE:
 

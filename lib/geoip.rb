@@ -5,7 +5,7 @@ $:.unshift(File.dirname(__FILE__)) unless
 
 module Autometal
   class Geoip
-    VERSION = '0.1.1'
+    VERSION = '0.1.2'
     DEFAULT_PACKAGE = "GeoLiteCity"
     DATA_FILE_PATH = "/usr/local/share/GeoIP/"
     BIN = "geoiplookup"

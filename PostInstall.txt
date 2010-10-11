@@ -1,4 +1,7 @@
+
 Thank you for installing autometal-geoip
-This gem will install and use MaxMind's GeoLiteCity database by default.
+
+Please run +sudo install_geoip+ to install the MaxMind binaries
 
 For more information on autometal-geoip, see http://humbuckercode.co.uk/licks/gems/geoip/
+

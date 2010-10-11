@@ -3,7 +3,8 @@ Manifest.txt
 PostInstall.txt
 README.rdoc
 Rakefile
-geoip.gemspec
+autometal-geoip.gemspec
+bin/install_geoip
 lib/geoip.rb
 lib/geoip/geolocatable.rb
 lib/geoip/installer.rb

@@ -4,6 +4,7 @@ class TestGeoip < Test::Unit::TestCase
 
   def setup
     @dummy = Dummy.new
+    @dummy2 = AnotherDummy.new
   end
   
   def test_objects_are_geolocatable
@@ -19,5 +20,9 @@ class TestGeoip < Test::Unit::TestCase
     assert_not_nil @dummy.city, "City should not be nil"
     assert_not_nil @dummy.lat, "Latitude should not be nil"
     assert_not_nil @dummy.lng, "Longitude should not be nil"
+  end
+  
+  def test_can_override_geo_attribute
+    assert_equal @dummy.country, @dummy2.country
   end
 end

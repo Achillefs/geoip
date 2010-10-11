@@ -16,13 +16,41 @@ Also provides geo-location methods to Active Record and Sequel Models.
   And rerun the installer
 
 == SYNOPSIS:
-
-  Autometal::Geoip provides a standalone geoip service:
-  +
+  
+Autometal::Geoip provides a standalone GeoIP service:
+  require "rubygems"
+  require "autometal-geoip"
   @geo = Autometal::Geoip.new("66.102.13.106")
-  @geo.country US
-  =>
-  +
+  @geo.country
+  => US
+
+You can also pass it a domain instead of an IP address
+  @geo = Autometal::Geoip.new("www.google.com")
+  @geo.country
+  => US
+  
+You can make any object Geo-location aware, as long as it has an IP or a domain attribute:
+  require "rubygems"
+  require "autometal-geoip"
+  class Site
+    include Geolocatable
+  end
+  Site.new(:domain => "google.com")
+  site.country
+  => "US"
+
+The above will work if your class has a +domain+ attribute.
+You can override the attribute used to geolocate by overriding +geo_attr+
+
+  require "rubygems"
+  require "autometal-geoip"
+  class Site
+    include Geolocatable
+    def geo_attr; self.weird_ip_field_name; end
+  end
+  Site.new(:weird_ip_field_name => "")
+  site.country
+  => "US"
 
 == REQUIREMENTS:
 

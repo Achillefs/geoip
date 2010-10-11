@@ -3,9 +3,14 @@ Manifest.txt
 PostInstall.txt
 README.rdoc
 Rakefile
+geoip.gemspec
 lib/geoip.rb
+lib/geoip/geolocatable.rb
+lib/geoip/installer.rb
 script/console
 script/destroy
 script/generate
+shellscripts/install_binary
+shellscripts/install_db
 test/test_geoip.rb
 test/test_helper.rb

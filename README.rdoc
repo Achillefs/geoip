@@ -1,32 +1,40 @@
-= geoip
+= autometal-geoip
 
-* http://github.com/#{github_username}/#{project_name}
+* http://github.com/Achillefs/geoip
 
 == DESCRIPTION:
-
-FIX (describe your package)
+A wrapper to MaxMind's GeoIP services, that can work with both free and paid versions.
+Also provides geo-location methods to Active Record and Sequel Models.
 
 == FEATURES/PROBLEMS:
 
-* FIX (list of features or problems)
+* While you are installing the MaxMind binaries on Linux systems, you mayget an error similar to this: 
+   +libGeoIP.so.1: cannot open shared object file: No such file or directory+
+  If you do, do the following:
+  +$ vim /etc/ld.so.conf (and add the directory the libraries were installed in usually /var/lib or /var/shared/lib)+
+  +$ ldconfig+
+  And rerun the installer
 
 == SYNOPSIS:
 
-  FIX (code sample of usage)
+  Autometal::Geoip provides a standalone geoip service:
+  +
+  @geo = Autometal::Geoip.new("66.102.13.106")
+  @geo.country US
+  =>
+  +
 
 == REQUIREMENTS:
 
-* FIX (list of requirements)
+* GeoIP C bindings.
 
 == INSTALL:
 
-* FIX (sudo gem install, anything else)
+sudo gem install autometal-geoip
 
 == LICENSE:
 
-(The MIT License)
-
-Copyright (c) 2010 FIXME full name
+Copyright (c) 2010 Achillefs Charmpilas, Humbucker Ltd
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

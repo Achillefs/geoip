@@ -6,6 +6,8 @@
 A wrapper to MaxMind's GeoIP services, that can work with both free and paid versions.
 Also provides geo-location methods to Active Record and Sequel Models.
 
+This product includes GeoLite data created by MaxMind, available from http://www.maxmind.com/."
+
 == FEATURES/PROBLEMS:
 
 * While you are installing the MaxMind binaries on Linux systems, you mayget an error similar to this: 

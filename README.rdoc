@@ -6,7 +6,11 @@
 A wrapper to MaxMind's GeoIP services, that can work with both free and paid versions.
 Also provides geo-location methods to Active Record and Sequel Models.
 
-This product includes GeoLite data created by MaxMind, available from http://www.maxmind.com/."
+This product includes GeoLite data created by MaxMind, available from http://www.maxmind.com/.
+
+=== Why?
+It is quite fast, simple and hackable, and it doesn't require any change to your application schema - unless you want to.
+Plus, the ruby bindings available from MaxMind are quite crap to use.
 
 == FEATURES/PROBLEMS:
 
@@ -62,7 +66,7 @@ You can override the attribute used to geolocate by overriding +geo_attr+
 
 == INSTALL:
 
-sudo gem install autometal-geoip
+  sudo gem install autometal-geoip
 
 == LICENSE:
 

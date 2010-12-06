@@ -1,0 +1,9 @@
+#! /bin/bash
+mkdir ./tmp
+cd ./tmp
+wget $1
+gunzip *.gz
+sudo mkdir -p /usr/local/share/GeoIP/
+sudo mv *.dat /usr/local/share/GeoIP/
+cd ..
+rm -rf ./tmp

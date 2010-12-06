@@ -1,0 +1,93 @@
+= autometal-geoip
+
+* http://github.com/Achillefs/geoip
+
+== DESCRIPTION:
+A wrapper to MaxMind's GeoIP services, that can work with both free and paid versions.
+Also provides geo-location methods to Active Record and Sequel Models.
+
+This product includes GeoLite data created by MaxMind, available from http://www.maxmind.com/.
+
+=== Why?
+It is quite fast, simple and hackable, and it doesn't require any change to your application schema - unless you want to.
+Plus, the ruby bindings available from MaxMind are quite crap to use.
+
+== FEATURES/PROBLEMS:
+
+* While you are installing the MaxMind binaries on Linux systems, you mayget an error similar to this: 
+    libGeoIP.so.1: cannot open shared object file: No such file or directory
+  If you do, do the following:
+    $ vim /etc/ld.so.conf (and add /var/shared/lib)
+    $ ldconfig
+  And rerun the installer
+
+== SYNOPSIS:
+  
+Autometal::Geoip provides a standalone GeoIP service:
+  require "rubygems"
+  require "geoip"
+  @geo = Autometal::Geoip.new("66.102.13.106")
+  @geo.country
+  => US
+
+You can also pass it a domain instead of an IP address
+  @geo = Autometal::Geoip.new("www.google.com")
+  @geo.country
+  => US
+  
+You can make any object Geo-location aware, as long as it has an IP or a domain attribute:
+  require "rubygems"
+  require "geoip"
+  class Site
+    include Geolocatable
+  end
+  Site.new(:domain => "google.com")
+  site.country
+  => "US"
+
+The above will work if your class has a +domain+ attribute.
+You can override the attribute used to geolocate by overriding +geo_attr+
+
+  require "rubygems"
+  require "geoip"
+  class Site
+    include Geolocatable
+    def geo_attr; self.weird_ip_field_name; end
+  end
+  Site.new(:weird_ip_field_name => "66.102.13.106")
+  site.country
+  => "US"
+
+== REQUIREMENTS:
+
+* GeoIP C bindings (installed along with the Gem)
+* Active Support
+  This isn't really needed, I just like using the 1.day.ago stuff too much...
+
+== INSTALL:
+
+  sudo gem install autometal-geoip
+  sudo install_geoip (unless already installed)
+
+== LICENSE:
+
+Copyright (c) 2010 Achillefs Charmpilas, Humbucker Ltd
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

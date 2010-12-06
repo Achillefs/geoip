@@ -1,0 +1,7 @@
+#! /usr/bin/env ruby
+require "rubygems"
+require "geoip"
+
+puts "Attempting to install MaxMind GeoIP binaries..."
+Autometal::Geoip::Installer.new("GeoLiteCity")
+puts "Done."

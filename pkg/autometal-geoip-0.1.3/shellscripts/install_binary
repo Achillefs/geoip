@@ -1,7 +1,0 @@
-#! /bin/bash
-mkdir ./tmp && cd ./tmp
-wget $1
-tar -xzvf *.gz && cd GeoIP*
-./configure && make && make check && sudo make install
-cd ../..
-rm -rf ./tmp

@@ -6,8 +6,10 @@ Rakefile
 autometal-geoip.gemspec
 bin/install_geoip
 lib/geoip.rb
+lib/geoip/city.rb
 lib/geoip/geolocatable.rb
 lib/geoip/installer.rb
+lib/geoip/organization.rb
 script/console
 script/destroy
 script/generate

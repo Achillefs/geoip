@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{autometal-geoip}
-  s.version = "0.2.2"
+  s.version = "0.3.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Achillefs Charmpilas"]
-  s.date = %q{2010-12-07}
+  s.date = %q{2010-12-08}
   s.default_executable = %q{install_geoip}
   s.description = %q{A wrapper to MaxMind's GeoIP services, that can work with both free and paid versions.
 Also provides geo-location methods to Active Record and Sequel Models.
@@ -37,16 +37,13 @@ For more information on autometal-geoip, see http://humbuckercode.co.uk/licks/ge
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<activesupport>, [">= 0"])
       s.add_development_dependency(%q<rubyforge>, [">= 2.0.4"])
       s.add_development_dependency(%q<hoe>, [">= 2.6.2"])
     else
-      s.add_dependency(%q<activesupport>, [">= 0"])
       s.add_dependency(%q<rubyforge>, [">= 2.0.4"])
       s.add_dependency(%q<hoe>, [">= 2.6.2"])
     end
   else
-    s.add_dependency(%q<activesupport>, [">= 0"])
     s.add_dependency(%q<rubyforge>, [">= 2.0.4"])
     s.add_dependency(%q<hoe>, [">= 2.6.2"])
   end

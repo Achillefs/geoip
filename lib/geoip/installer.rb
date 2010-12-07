@@ -1,8 +1,9 @@
-require "active_support"
 require "fileutils"
-
 module Autometal
   class Geoip
+=begin rdoc
+  Installer class that handles downloading and installing databases and binaries
+=end
     class Installer
       BASE_DB_URL = "http://geolite.maxmind.com/download/geoip/database/*.dat.gz"
       PACKAGE_URL = "http://geolite.maxmind.com/download/geoip/api/c/GeoIP.tar.gz"
@@ -25,7 +26,7 @@ module Autometal
 
       def install_database
         target = File.join(Autometal::Geoip::DATA_FILE_PATH,"#{@package_name}.dat")
-        if File.exists?(target) and File::ctime(target) > 1.month.ago
+        if File.exists?(target) and File::ctime(target) > Time.now - (30*24*60*60)
           puts "Datafile is up to date, skipping"
         else
           `cd #{File.dirname(__FILE__)}/../../shellscripts/ && ./install_db #{@db_url}`

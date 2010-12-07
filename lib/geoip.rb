@@ -3,20 +3,33 @@ $:.unshift(File.dirname(__FILE__)) unless
 
 module Autometal
   class Geoip
-    VERSION = '0.2.2'
+    VERSION = '0.3.1'
     DATA_FILE_PATH = "/usr/local/share/GeoIP/"
     BIN = "geoiplookup"
     
     def self.bin_installed?
       %x{ #{self::BIN} --version } == "" ? false : true
     end
-    
+=begin rdoc
+  Extensible class that uses the Geoip binaries and data files to geolocate IPs and Hostnames.
+  To extend it to use a database, you will need to subclass Geoip::Package, define process_response, and self.data_file
+  
+  See geoip/city.rb and geoip/organization.rb for extension examples
+=end
     class Package
       attr_accessor :version
       def initialize ip_or_domain
         return false unless self.class.installed?
         @response = self.lookup ip_or_domain
         process_response
+      end
+      
+      def process_response
+        # deine this in the extension models
+      end
+      
+      def self.data_file
+        
       end
       
       def self.installed?
@@ -26,7 +39,6 @@ module Autometal
       end
       
       def lookup ip_or_domain
-        puts "#{Geoip::BIN} -f #{self.class.data_file} #{ip_or_domain}"
         %x{ #{Geoip::BIN} -f #{self.class.data_file} #{ip_or_domain} }
       end
     end

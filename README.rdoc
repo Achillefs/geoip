@@ -34,7 +34,13 @@ You can also pass it a domain instead of an IP address
   @geo = Autometal::Geoip.new("www.google.com")
   @geo.country
   => US
-  
+
+If you have purchased the Organization edition of the GeoIP database, you can also do this:
+  @geo.organization
+  => Google
+Currently, the gem does not support installing the file itself, you will need to make sure that GeoIPOrg.dat is located in /usr/local/shared/
+
+
 You can make any object Geo-location aware, as long as it has an IP or a domain attribute:
   require "rubygems"
   require "geoip"
@@ -44,6 +50,7 @@ You can make any object Geo-location aware, as long as it has an IP or a domain 
   Site.new(:domain => "google.com")
   site.country
   => "US"
+  site.organization # if GeoIPOrg.dat is not installed, this will return nil
 
 The above will work if your class has a +domain+ attribute.
 You can override the attribute used to geolocate by overriding +geo_attr+
@@ -61,13 +68,21 @@ You can override the attribute used to geolocate by overriding +geo_attr+
 == REQUIREMENTS:
 
 * GeoIP C bindings (installed along with the Gem)
-* Active Support
-  This isn't really needed, I just like using the 1.day.ago stuff too much...
 
 == INSTALL:
 
   sudo gem install autometal-geoip
   sudo install_geoip (unless already installed)
+
+== CHANGELOG
+* 0.3.1
+  Removed active_support dependency
+* 0.2.2
+  Reworked class hierarchy, added support for GeoIP's Organization database
+* 0.1.3
+  Installer bugfix, fixes datafile install crash
+* 0.1.1
+  Initial release
 
 == LICENSE:
 

@@ -8,7 +8,11 @@ class TestGeoip < Test::Unit::TestCase
   end
   
   def test_objects_are_geolocatable
-    assert_not_nil @dummy.country
+    assert_not_nil @dummy.country if Autometal::Geoip::City.installed?
+  end
+  
+  def test_object_responds_to_organization_if_installed
+    assert_not_nil @dummy.organization if Autometal::Geoip::Organization.installed?
   end
   
   def test_gem_can_install_binaries

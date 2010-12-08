@@ -3,9 +3,18 @@ $:.unshift(File.dirname(__FILE__)) unless
 
 module Autometal
   class Geoip
-    VERSION = '0.3.1'
+    VERSION = '0.3.3'
     DATA_FILE_PATH = "/usr/local/share/GeoIP/"
     BIN = "geoiplookup"
+    def initialize ip_or_domain
+      @org = Organization.new(ip_or_domain) if Organization.installed?
+      @geo = City.new(ip_or_domain) if City.installed?
+    end
+    
+    def method_missing(m, *args, &block)
+      return @org.send(m, *args, &block) if @org and @org.respond_to?(m)
+      return @geo.send(m, *args, &block) if @geo and @geo.respond_to?(m)
+    end
     
     def self.bin_installed?
       %x{ #{self::BIN} --version } == "" ? false : true

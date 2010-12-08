@@ -75,7 +75,7 @@ You can override the attribute used to geolocate by overriding +geo_attr+
   sudo install_geoip (unless already installed)
 
 == CHANGELOG
-* 0.3.1
+* 0.3.3
   Removed active_support dependency
 * 0.2.2
   Reworked class hierarchy, added support for GeoIP's Organization database

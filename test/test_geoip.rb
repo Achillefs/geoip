@@ -15,6 +15,13 @@ class TestGeoip < Test::Unit::TestCase
     assert_not_nil @dummy.organization if Autometal::Geoip::Organization.installed?
   end
   
+  def test_geopi_proxy_class_works
+    assert_not_nil Autometal::Geoip.new(@dummy.ip).city, "City Package Delegation should work"
+    if Autometal::Geoip::Organization.installed?
+      assert_not_nil Autometal::Geoip.new(@dummy.ip).organization, "Organization Package Delegation should work"
+    end
+  end
+  
   def test_gem_can_install_binaries
     assert_nothing_raised do
       Autometal::Geoip::Installer.new("GeoLiteCity")

@@ -17,7 +17,7 @@ module Autometal
     end
     
     def self.bin_installed?
-      %x{ #{self::BIN} --version } == "" ? false : true
+      File.exists?(%x{ which #{self::BIN} }.strip)
     end
 =begin rdoc
   Extensible class that uses the Geoip binaries and data files to geolocate IPs and Hostnames.

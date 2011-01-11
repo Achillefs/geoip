@@ -14,12 +14,12 @@ Plus, the ruby bindings available from MaxMind are quite crap to use.
 
 == FEATURES/PROBLEMS:
 
-* While you are installing the MaxMind binaries on Linux systems, you mayget an error similar to this: 
+* While you are installing the MaxMind binaries on Linux systems, you may get an error similar to this: 
     libGeoIP.so.1: cannot open shared object file: No such file or directory
   If you do, do the following:
     $ vim /etc/ld.so.conf (and add /var/shared/lib)
     $ ldconfig
-  And rerun the installer
+  And rerun the installer.
 
 == SYNOPSIS:
   
@@ -45,7 +45,7 @@ You can make any object Geo-location aware, as long as it has an IP or a domain 
   require "rubygems"
   require "geoip"
   class Site
-    include Geolocatable
+    include Autometal::Geolocatable
   end
   Site.new(:domain => "google.com")
   site.country
@@ -58,7 +58,7 @@ You can override the attribute used to geolocate by overriding +geo_attr+
   require "rubygems"
   require "geoip"
   class Site
-    include Geolocatable
+    include Autometal::Geolocatable
     def geo_attr; self.weird_ip_field_name; end
   end
   Site.new(:weird_ip_field_name => "66.102.13.106")
@@ -75,6 +75,10 @@ You can override the attribute used to geolocate by overriding +geo_attr+
   sudo install_geoip (unless already installed)
 
 == CHANGELOG
+* 0.3.5
+  Documentation fixes
+* 0.3.4
+  Changed bin_installed detection
 * 0.3.3
   Removed active_support dependency
 * 0.2.2

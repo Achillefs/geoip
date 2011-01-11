@@ -3,7 +3,7 @@ $:.unshift(File.dirname(__FILE__)) unless
 
 module Autometal
   class Geoip
-    VERSION = '0.3.3'
+    VERSION = '0.3.4'
     DATA_FILE_PATH = "/usr/local/share/GeoIP/"
     BIN = "geoiplookup"
     def initialize ip_or_domain

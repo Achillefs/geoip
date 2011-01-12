@@ -3,7 +3,12 @@ mkdir ./tmp
 cd ./tmp
 wget $1
 gunzip *.gz
-sudo mkdir -p /usr/local/share/GeoIP/
-sudo mv *.dat /usr/local/share/GeoIP/
+if which sudo then
+  sudo mkdir -p /usr/local/share/GeoIP/
+  sudo mv *.dat /usr/local/share/GeoIP/
+else
+  mkdir -p /usr/local/share/GeoIP/
+  mv *.dat /usr/local/share/GeoIP/
+fi
 cd ..
 rm -rf ./tmp

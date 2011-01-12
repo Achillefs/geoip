@@ -3,7 +3,8 @@ mkdir ./tmp
 cd ./tmp
 wget $1
 gunzip *.gz
-if which sudo then
+if which sudo 
+then
   sudo mkdir -p /usr/local/share/GeoIP/
   sudo mv *.dat /usr/local/share/GeoIP/
 else

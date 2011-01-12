@@ -3,7 +3,8 @@ mkdir ./tmp && cd ./tmp
 wget $1
 tar -xzvf *.gz && cd GeoIP*
 ./configure && make && make check
-if which sudo then
+if which sudo 
+then
   sudo make install
 else
   make install

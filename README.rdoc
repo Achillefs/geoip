@@ -75,7 +75,7 @@ You can override the attribute used to geolocate by overriding +geo_attr+
   sudo install_geoip (unless already installed)
 
 == CHANGELOG
-* 0.3.6
+* 0.3.7
   Installation now checks for sudo command, and runs accordingly. Bear in mind that if you are not root and sudo does not exist, the installation will fail as it will not have enough permissions to install binaries.
 * 0.3.5
   Documentation fixes

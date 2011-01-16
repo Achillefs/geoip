@@ -48,7 +48,11 @@ module Autometal
       end
       
       def lookup ip_or_domain
-        %x{ #{Geoip::BIN} -f #{self.class.data_file} #{ip_or_domain} }
+        str = %x{ #{Geoip::BIN} -f #{self.class.data_file} #{ip_or_domain} }
+        if RUBY_VERSION.to_f > 1.8
+          str.force_encoding("iso-8859-1") unless str.valid_encoding?
+        end
+        str
       end
     end
   end

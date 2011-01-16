@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/test_helper.rb'
+require File.join(File.dirname(__FILE__),"test_helper")
 
 class TestGeoip < Test::Unit::TestCase
 
@@ -19,6 +19,14 @@ class TestGeoip < Test::Unit::TestCase
     assert_not_nil Autometal::Geoip.new(@dummy.ip).city, "City Package Delegation should work"
     if Autometal::Geoip::Organization.installed?
       assert_not_nil Autometal::Geoip.new(@dummy.ip).organization, "Organization Package Delegation should work"
+    end
+  end
+  
+  # Test suite should be run on Ruby 1.8+ and Ruby 1.9+
+  def test_gem_handles_weird_chars_without_exceptions
+    assert_nothing_raised do
+      assert_equal "DE", Autometal::Geoip.new('78.46.60.181').country
+      assert_equal "SE", Autometal::Geoip.new('81.237.231.174').country
     end
   end
   

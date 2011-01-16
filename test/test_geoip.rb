@@ -27,6 +27,8 @@ class TestGeoip < Test::Unit::TestCase
       Autometal::Geoip::Installer.new("GeoLiteCity")
     end
     assert_equal true, Autometal::Geoip.bin_installed?
+    assert_equal false, Autometal::StubbedGeoip.bin_installed?
+    
     assert_not_nil @dummy.country, "Country should not be nil"
     assert_not_nil @dummy.city, "City should not be nil"
     assert_not_nil @dummy.lat, "Latitude should not be nil"

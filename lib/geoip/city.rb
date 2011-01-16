@@ -1,5 +1,9 @@
 module Autometal
   class Geoip
+=begin rdoc
+  GeoLiteCity database extension
+  provides Country, City, Latitude and Longitude information.
+=end
     class City < Geoip::Package
       attr_accessor :country, :county, :city, :lat, :lng
       def latlng

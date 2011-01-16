@@ -1,5 +1,9 @@
 module Autometal
   class Geoip
+=begin rdoc
+  GeoIPOrg database extension
+  provides Country and Organization (ISP) information
+=end
     class Organization < Package
       attr_accessor :organization
       

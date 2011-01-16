@@ -18,3 +18,9 @@ class AnotherDummy
   end
   def geo_attr; pantera; end
 end
+
+module Autometal
+  class StubbedGeoip < Geoip
+    BIN = "zoot-allures.666"
+  end
+end

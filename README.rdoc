@@ -75,6 +75,8 @@ You can override the attribute used to geolocate by overriding +geo_attr+
   sudo install_geoip (unless already installed)
 
 == CHANGELOG
+* 0.4
+  Ruby 1.9.* support. Previous version of this gem would product encoding errors in some instances due to the different way Ruby 1.9+ deals with source and text encodings.
 * 0.3.7
   Installation now checks for sudo command, and runs accordingly. Bear in mind that if you are not root and sudo does not exist, the installation will fail as it will not have enough permissions to install binaries.
 * 0.3.5

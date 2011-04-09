@@ -74,7 +74,7 @@ You can override the attribute used to geolocate by overriding +geo_attr+
   sudo gem install autometal-geoip
   sudo install_geoip (unless already installed)
 
-== CHANGELOG
+== CHANGELOG:
 * 0.4
   Ruby 1.9.* support. Previous version of this gem would product encoding errors in some instances due to the different way Ruby 1.9+ deals with source and text encodings.
 * 0.3.7

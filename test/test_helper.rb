@@ -5,7 +5,7 @@ class Dummy
   attr_accessor :ip
   
   def initialize
-    @ip = open("http://check-rankings.co.uk").read rescue "66.102.13.105"
+    @ip = open("http://humbuckercode.co.uk/ping.php").read rescue "66.102.13.105"
   end
 end
 
@@ -14,7 +14,7 @@ class AnotherDummy
   attr_accessor :pantera
   
   def initialize
-    @pantera = open("http://check-rankings.co.uk").read rescue "66.102.13.105"
+    @pantera = open("http://humbuckercode.co.uk/ping.php").read rescue "66.102.13.105"
   end
   def geo_attr; pantera; end
 end

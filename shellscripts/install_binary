@@ -2,6 +2,11 @@
 mkdir ./tmp && cd ./tmp
 wget $1
 tar -xzvf *.gz && cd GeoIP*
+
+if [[ 'Linux' == `uname` ]]; then
+  libtoolize -f
+fi
+
 ./configure && make && make check
 if which sudo 
 then

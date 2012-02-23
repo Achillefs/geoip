@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{autometal-geoip}
-  s.version = "0.4.0"
+  s.version = "0.4.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Achillefs Charmpilas"]
-  s.date = %q{2011-01-16}
+  s.date = %q{2012-02-23}
   s.default_executable = %q{install_geoip}
   s.description = %q{A wrapper to MaxMind's GeoIP services, that can work with both free and paid versions.
 Also provides geo-location methods to Active Record and Sequel Models.
